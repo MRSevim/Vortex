@@ -1,0 +1,51 @@
+<div class="flex">
+  <div class="container">
+    <p class="info-text">
+      This app makes http requests to
+      <a
+        href="https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints"
+        target="”_blank”"
+        >RealWorld API</a
+      >
+      to log-in and register users so any username, e-mail and password is ok.
+      Just make sure you use the values you signed up with when logging in.
+    </p>
+  </div>
+</div>
+<div class="flex">
+  <form class="centered" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      formControlName="username"
+    />
+    @if( signUpForm.get('username')?.invalid &&
+    signUpForm.get('username')?.touched ) {
+    <small class="red">This field is required.</small>
+    }
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" formControlName="email" />
+    @if( signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched )
+    { @if(signUpForm.get('email')?.hasError('required')) {
+
+    <small class="red">This field is required.</small>
+    } @if(signUpForm.get('email')?.hasError('email')) {
+    <small class="red">Please enter a valid e-mail adress.</small>
+    } }
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      formControlName="password"
+    />
+    @if( signUpForm.get('password')?.invalid &&
+    signUpForm.get('password')?.touched ) {
+    <small class="red">This field is required.</small>
+    }
+    <input [disabled]="signUpForm.invalid" type="submit" value="Sign-Up" />
+  </form>
+</div>

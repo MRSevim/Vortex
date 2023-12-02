@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+body::after,
+body::before {
+  --primary-color: #dce0d9;
+  --secondary-color: #fbf6ef;
+  --tertiary-color: #ead7c3;
+  --text-color: black;
+}
+.dark-mode,
+.dark-mode::after,
+.dark-mode::before {
+  --primary-color: #1a2a32;
+  --secondary-color: #321a2a;
+  --tertiary-color: #2a321a;
+  --text-color: white;
+}
+.container {
+  width: 85%;
+}
+body {
+  color: var(--text-color);
+  font-family: "Lato", sans-serif;
+  position: relative;
+  min-height: 100vh;
+  height: 100%;
+}
+.red {
+  color: Red;
+}

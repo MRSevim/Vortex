@@ -1,0 +1,13 @@
+footer {
+  background-color: var(--primary-color);
+  height: 60px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  text-align: center;
+}

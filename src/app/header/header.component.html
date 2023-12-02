@@ -1,0 +1,23 @@
+<header>
+  <div class="container flex">
+    <h2>VORTEX - Your new media service</h2>
+    <div class="right-section">
+      <nav>
+        <ul class="navbar">
+          <a routerLink="/movies">Movies</a>
+          <a routerLink="/series">Series</a>
+          <a routerLink="/sign-up">Sign-up</a>
+          <a routerLink="/log-in">Login</a>
+        </ul>
+      </nav>
+
+      @if (isLoggedIn){
+      <div class="placeholder">
+        <div class="profile"></div>
+      </div>
+      } @else {
+      <div class="placeholder"></div>
+      }
+    </div>
+  </div>
+</header>
