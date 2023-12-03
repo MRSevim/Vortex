@@ -8,7 +8,9 @@
         >RealWorld API</a
       >
       to log-in and register users so any username, e-mail and password is ok.
-      Just make sure you use the values you signed up with when logging in.
+      Just make sure you use the values you signed up with when logging in. You
+      don't need to login or sign-up to check the rest of the website. These
+      processes are just for demonstration purposes.
     </p>
   </div>
 </div>
@@ -24,6 +26,12 @@
     @if( signUpForm.get('username')?.invalid &&
     signUpForm.get('username')?.touched ) {
     <small class="red">This field is required.</small>
+    } @if(errors.username !== undefined) {
+    <small class="red">
+      {{
+        isArray(errors.username) ? errors.username.join(" + ") : errors.username
+      }}</small
+    >
     }
     <label for="email">E-mail</label>
     <input type="email" id="email" name="email" formControlName="email" />
@@ -33,7 +41,13 @@
     <small class="red">This field is required.</small>
     } @if(signUpForm.get('email')?.hasError('email')) {
     <small class="red">Please enter a valid e-mail adress.</small>
-    } }
+    } } @if(errors.email !== undefined) {
+    <small class="red">
+      {{
+        isArray(errors.email) ? errors.email.join(" + ") : errors.email
+      }}</small
+    >
+    }
 
     <label for="password">Password</label>
     <input
@@ -45,6 +59,12 @@
     @if( signUpForm.get('password')?.invalid &&
     signUpForm.get('password')?.touched ) {
     <small class="red">This field is required.</small>
+    } @if(errors.password !== undefined) {
+    <small class="red">
+      {{
+        isArray(errors.password) ? errors.password.join(" + ") : errors.password
+      }}</small
+    >
     }
     <input [disabled]="signUpForm.invalid" type="submit" value="Sign-Up" />
   </form>

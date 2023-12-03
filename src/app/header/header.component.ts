@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+
+import { CurrentUserService } from '../User/current-user.service';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +11,6 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  isLoggedIn: boolean = false;
+  userService = inject(CurrentUserService);
+  isLoggedIn: boolean = this.userService.isLoggedIn;
 }

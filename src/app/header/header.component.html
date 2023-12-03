@@ -6,8 +6,6 @@
         <ul class="navbar">
           <a routerLink="/movies">Movies</a>
           <a routerLink="/series">Series</a>
-          <a routerLink="/sign-up">Sign-up</a>
-          <a routerLink="/log-in">Login</a>
         </ul>
       </nav>
 
@@ -16,7 +14,14 @@
         <div class="profile"></div>
       </div>
       } @else {
-      <div class="placeholder"></div>
+      <div class="placeholder">
+        <nav>
+          <ul class="navbar">
+            <a routerLink="/sign-up">Sign-up</a>
+            <a routerLink="/log-in">Login</a>
+          </ul>
+        </nav>
+      </div>
       }
     </div>
   </div>
