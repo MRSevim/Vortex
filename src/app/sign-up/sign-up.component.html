@@ -23,11 +23,12 @@
       name="username"
       formControlName="username"
     />
-    @if( signUpForm.get('username')?.invalid &&
+    @if (signUpForm.get('username')?.invalid &&
     signUpForm.get('username')?.touched ) {
     <small class="red">This field is required.</small>
-    } @if(errors.username !== undefined) {
+    } @if (errors.username[0].length !== 0 ) {
     <small class="red">
+      Username
       {{
         isArray(errors.username) ? errors.username.join(" + ") : errors.username
       }}</small
@@ -41,8 +42,9 @@
     <small class="red">This field is required.</small>
     } @if(signUpForm.get('email')?.hasError('email')) {
     <small class="red">Please enter a valid e-mail adress.</small>
-    } } @if(errors.email !== undefined) {
+    } } @if(errors.email[0].length !== 0) {
     <small class="red">
+      E-mail
       {{
         isArray(errors.email) ? errors.email.join(" + ") : errors.email
       }}</small

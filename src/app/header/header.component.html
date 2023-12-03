@@ -1,6 +1,6 @@
 <header>
   <div class="container flex">
-    <h2>VORTEX - Your new media service</h2>
+    <h2 class="icon" routerLink="">VORTEX - Your new media service</h2>
     <div class="right-section">
       <nav>
         <ul class="navbar">
@@ -9,11 +9,19 @@
         </ul>
       </nav>
 
-      @if (isLoggedIn){
-      <div class="placeholder">
-        <div class="profile"></div>
+      @if (userService.currentUserSig()){
+      <div class="placeholder profile">
+        <div class="profile-pic" [style.background-image]="profileImg()"></div>
+        <p class="username">
+          {{ userService.currentUserSig()?.user?.username }}
+        </p>
+        <div class="profile-menu">
+          <li><a href="javascript:;">Dark-mode</a></li>
+          <li><a href="javascript:;" (click)="logOut()">Logout</a></li>
+        </div>
       </div>
-      } @else {
+
+      } @if(userService.currentUserSig()===null) {
       <div class="placeholder">
         <nav>
           <ul class="navbar">
@@ -22,6 +30,8 @@
           </ul>
         </nav>
       </div>
+      } @if(userService.currentUserSig()===undefined) {
+      <div class="placeholder"></div>
       }
     </div>
   </div>

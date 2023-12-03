@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CurrentUserService } from '../User/current-user.service';
@@ -12,5 +12,12 @@ import { CurrentUserService } from '../User/current-user.service';
 })
 export class HeaderComponent {
   userService = inject(CurrentUserService);
-  isLoggedIn: boolean = this.userService.isLoggedIn;
+
+  profileImg = computed<string>(
+    () => `url(${this.userService.currentUserSig()?.user?.image})`
+  );
+  logOut() {
+    localStorage.setItem('token', '');
+    this.userService.setUser(null);
+  }
 }

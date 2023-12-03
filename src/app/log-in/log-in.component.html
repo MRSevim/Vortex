@@ -1,14 +1,8 @@
 <div class="flex">
   <form class="centered" [formGroup]="logInForm" (ngSubmit)="onLogIn()">
-    <label for="username">Username</label>
-    <input
-      type="text"
-      id="username"
-      name="username"
-      formControlName="username"
-    />
-    @if( logInForm.get('username')?.invalid &&
-    logInForm.get('username')?.touched ) {
+    <label for="email">E-mail</label>
+    <input type="text" id="email" name="email" formControlName="email" />
+    @if( logInForm.get('email')?.invalid && logInForm.get('email')?.touched ) {
     <small class="red">This field is required.</small>
     }
     <label for="password">Password</label>
@@ -21,6 +15,15 @@
     @if( logInForm.get('password')?.invalid &&
     logInForm.get('password')?.touched ) {
     <small class="red">This field is required.</small>
+    } @if(errors.emailorpassword[0].length !== 0) {
+    <small class="red">
+      E-mail or password
+      {{
+        isArray(errors.emailorpassword)
+          ? errors.emailorpassword.join(" + ")
+          : errors.emailorpassword
+      }}</small
+    >
     }
     <input [disabled]="logInForm.invalid" type="submit" value="Log-in" />
   </form>

@@ -5,17 +5,11 @@ import { UserInterface } from './user';
   providedIn: 'root',
 })
 export class CurrentUserService {
-  user: undefined | UserInterface = undefined;
-
-  isLoggedIn: boolean = false;
+  currentUserSig = signal<undefined | UserInterface | null>(undefined);
 
   constructor() {}
 
-  setUser(user: UserInterface) {
-    this.user = user;
-    this.isLoggedIn = this.user !== undefined;
-  }
-  getUser(): UserInterface {
-    return this.user as UserInterface;
+  setUser(user: UserInterface | undefined | null) {
+    this.currentUserSig.set(user);
   }
 }
