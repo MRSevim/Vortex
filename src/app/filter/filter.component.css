@@ -1,0 +1,8 @@
+.filter-container {
+  background-color: var(--tertiary-color);
+  margin-top: 20px;
+  padding: 20px;
+}
+.filter-option {
+  margin-bottom: 20px;
+}

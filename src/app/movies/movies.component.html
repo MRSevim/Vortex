@@ -1,0 +1,14 @@
+<div class="flex">
+  <app-filter
+    [movieOrSeries]="'movie'"
+    (sendFilters)="filter($event)"
+  ></app-filter>
+  <app-grid
+    [products]="
+      products
+        .filter(filters.type.function)
+        .filter(filters.imdb.function)
+        .filter(yearFilter)
+    "
+  ></app-grid>
+</div>

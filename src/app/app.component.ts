@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, afterNextRender } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -35,16 +35,21 @@ export class AppComponent implements OnInit {
     let options = {
       headers: { Authorization: `Token ${this.token}` },
     };
-    console.log(this.currentUser.currentUserSig());
 
     this.http
       .get<UserInterface>('https://api.realworld.io/api/user', options)
       .subscribe({
         next: (data) => {
           this.currentUser.setUser(data);
+          if (this.currentUser.currentUserSig() !== undefined) {
+            document.body.classList.remove('hidden');
+          }
         },
         error: () => {
           this.currentUser.setUser(null);
+          if (this.currentUser.currentUserSig() !== undefined) {
+            document.body.classList.remove('hidden');
+          }
         },
       });
   }

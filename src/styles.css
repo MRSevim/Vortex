@@ -29,6 +29,7 @@ body::before {
 }
 body {
   color: var(--text-color);
+  background-color: var(--secondary-color);
   font-family: "Lato", sans-serif;
   position: relative;
   min-height: 100vh;
@@ -36,4 +37,7 @@ body {
 }
 .red {
   color: Red;
+}
+.hidden {
+  display: none;
 }

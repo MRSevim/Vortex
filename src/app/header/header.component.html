@@ -10,13 +10,24 @@
       </nav>
 
       @if (userService.currentUserSig()){
-      <div class="placeholder profile">
-        <div class="profile-pic" [style.background-image]="profileImg()"></div>
-        <p class="username">
-          {{ userService.currentUserSig()?.user?.username }}
-        </p>
-        <div class="profile-menu">
-          <li><a href="javascript:;">Dark-mode</a></li>
+      <div class="parent">
+        <div class="placeholder profile" (click)="toggleMenu()">
+          <div
+            class="profile-pic"
+            [style.background-image]="profileImg()"
+          ></div>
+          <p class="username">
+            {{ userService.currentUserSig()?.user?.username }}
+          </p>
+        </div>
+        <div class="profile-menu" [class.hidden]="menuToggle">
+          <li>
+            <p>Dark-mode</p>
+            <div class="dark-mode-toggle" (click)="darkModeToggle()">
+              <div class="toggle-btn" [class.switched]="darkMode"></div>
+            </div>
+          </li>
+
           <li><a href="javascript:;" (click)="logOut()">Logout</a></li>
         </div>
       </div>
@@ -30,8 +41,6 @@
           </ul>
         </nav>
       </div>
-      } @if(userService.currentUserSig()===undefined) {
-      <div class="placeholder"></div>
       }
     </div>
   </div>
