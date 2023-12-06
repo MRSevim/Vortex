@@ -87,7 +87,7 @@ export class FilterComponent implements OnInit {
     if (typeof this.filterForm.value.year === 'number') {
       this.filters.year.value = this.filterForm.value.year;
     }
-    console.log(this.filters);
+
     this.sendFilters.emit(this.filters);
   }
 }

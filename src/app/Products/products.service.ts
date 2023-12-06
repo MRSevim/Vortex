@@ -17,7 +17,7 @@ export class ProductsService {
   Products: ProductInterface[] = [
     {
       id: 1,
-      name: 'Shawshank redemption',
+      name: 'Shawshank Redemption',
       type: 'movie',
       imdb: 9.3,
       stars: 5,
@@ -97,6 +97,27 @@ export class ProductsService {
   ];
   getAllProducts(): ProductInterface[] {
     return this.Products;
+  }
+  getRandomProduct() {
+    let rand = Math.floor(Math.random() * this.Products.length);
+    return this.Products[rand];
+  }
+  getShowcaseProducts() {
+    let showcase: ProductInterface[] = [];
+    for (let i = 0; i < 5; i++) {
+      let element = this.getRandomProduct();
+      if (
+        showcase.some((item) => {
+          return item.id === element.id;
+        })
+      ) {
+        element = this.getRandomProduct();
+        i--;
+      } else {
+        showcase.push(element);
+      }
+    }
+    return showcase;
   }
 
   constructor() {}
