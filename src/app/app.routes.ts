@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MoviesComponent } from './movies/movies.component';
+import { SeriesComponent } from './series/series.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +14,7 @@ export const routes: Routes = [
   },
   { path: 'homepage', component: HomepageComponent },
   { path: 'movies', component: MoviesComponent },
+  { path: 'series', component: SeriesComponent },
   { path: 'log-in', component: LogInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: '**', component: PageNotFoundComponent },

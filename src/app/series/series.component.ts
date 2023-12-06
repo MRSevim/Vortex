@@ -1,20 +1,21 @@
 import { Component, inject } from '@angular/core';
-import { GridComponent } from '../grid/grid.component';
-import {
-  ProductInterface,
-  ProductsService,
-} from '../Products/products.service';
 import { FilterComponent, FilterInterface } from '../filter/filter.component';
+import { GridComponent } from '../grid/grid.component';
+
+import {
+  ProductsService,
+  ProductInterface,
+} from '../Products/products.service';
 
 @Component({
-  selector: 'app-movies',
+  selector: 'app-series',
   standalone: true,
-  imports: [GridComponent, FilterComponent],
-  templateUrl: './movies.component.html',
-  styleUrl: './movies.component.css',
+  imports: [FilterComponent, GridComponent],
+  templateUrl: './series.component.html',
+  styleUrl: './series.component.css',
 })
-export class MoviesComponent {
-  movie = true;
+export class SeriesComponent {
+  series = true;
 
   filters: FilterInterface = {
     type: {
@@ -42,12 +43,6 @@ export class MoviesComponent {
       if (
         property === 'year' &&
         this.filters[property as keyof typeof this.filters].value === 0
-      ) {
-        this.products = this.products.filter(() => true);
-      } else if (
-        property === 'type' &&
-        this.filters[property as keyof typeof this.filters].value ===
-          'movieandseries'
       ) {
         this.products = this.products.filter(() => true);
       } else
