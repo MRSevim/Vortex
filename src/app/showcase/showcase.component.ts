@@ -12,18 +12,59 @@ import { CommonModule } from '@angular/common';
 export class ShowcaseComponent implements OnInit {
   @Input() data: ProductInterface[] = [];
   indexX = 'translateX(0)';
+  index = 0;
 
   floor(number: number): number {
     return Math.floor(number);
   }
 
   goRight() {
-    this.data.push(this.data.shift() as ProductInterface);
+    let allElements = document.querySelectorAll('.element');
+    let middleElement = document.querySelectorAll('.element')[this.index];
+    if (this.index < allElements.length - 1) {
+      middleElement.classList.remove('center-element');
+      allElements.forEach((element) => {
+        element.classList.remove('hidden');
+      });
+      this.index++;
+      allElements[this.index].classList.add('center-element');
+      allElements.forEach((element, index) => {
+        if (
+          index !== this.index &&
+          index !== this.index + 1 &&
+          index !== this.index - 1
+        ) {
+          element.classList.add('hidden');
+        }
+      });
+    }
+    this.indexX = `translateX(${-((this.index - 2) * 370)}px)`;
   }
   goLeft() {
-    this.data.unshift(this.data[this.data.length - 1]);
-    this.data.pop();
+    let allElements = document.querySelectorAll('.element');
+    let middleElement = document.querySelectorAll('.element')[this.index];
+    if (this.index > 0) {
+      middleElement.classList.remove('center-element');
+      allElements.forEach((element) => {
+        element.classList.remove('hidden');
+      });
+      this.index--;
+      console.log(this.index);
+      allElements[this.index].classList.add('center-element');
+      allElements.forEach((element, index) => {
+        if (
+          index !== this.index &&
+          index !== this.index + 1 &&
+          index !== this.index - 1
+        ) {
+          element.classList.add('hidden');
+        }
+      });
+      this.indexX = `translateX(${this.index * 370}px)`;
+    }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.index = this.floor(this.data.length / 2);
+  }
 }

@@ -4,6 +4,7 @@
   border-radius: 10px;
   background-color: var(--tertiary-color);
   justify-content: center;
+  align-items: center;
 }
 .column {
   margin: 10px;
@@ -11,6 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 350px;
+  height: 300px;
 }
 .bordered {
   border: 2px solid var(--text-color);
@@ -24,12 +27,13 @@
   width: 600px;
   height: 400px;
 }
+.center-element {
+  width: 650px;
+  height: 450px;
+}
 .hidden {
   display: none;
 }
 .clickable {
   cursor: pointer;
-}
-.flex {
-  align-items: center;
 }

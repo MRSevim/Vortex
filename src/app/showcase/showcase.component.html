@@ -2,26 +2,25 @@
   <h1 class="column clickable" (click)="goLeft()"><</h1>
 
   <div
-    class="flex"
     *ngFor="let product of data; index as i; first as isFirst; last as isLast"
   >
     @if(isFirst || isLast) {
-    <div class="column hidden">
-      <div class="bordered clickable" [style.transform]="indexX">
+    <div class="column element hidden">
+      <div class="bordered clickable">
         <p>{{ product.name }} - Id:{{ product.id }}</p>
         <img class="video" [src]="product.image" alt="" />
       </div>
     </div>
     } @else if(i === floor(data.length/2)) {
-    <div class="column center-element">
-      <div class="bordered clickable" [style.transform]="indexX">
+    <div class="column element center-element">
+      <div class="bordered clickable">
         <p>{{ product.name }} - Id:{{ product.id }}</p>
         <img class="video" [src]="product.image" alt="" />
       </div>
     </div>
     } @else {
-    <div class="column">
-      <div class="bordered clickable" [style.transform]="indexX">
+    <div class="column element">
+      <div class="bordered clickable">
         <p>{{ product.name }} - Id:{{ product.id }}</p>
         <img class="video" [src]="product.image" alt="" />
       </div>
