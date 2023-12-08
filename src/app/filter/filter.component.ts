@@ -80,7 +80,10 @@ export class FilterComponent implements OnInit {
       this.filters.imdb.imdbmin = this.filterForm.value.imdbmin as number;
       this.filters.imdb.imdbmax = 10;
     }
-    if (this.filterForm.value.imdbmin === null) {
+    if (
+      this.filterForm.value.imdbmin === null ||
+      this.filterForm.value.imdbmin === 0
+    ) {
       this.filters.imdb.imdbmax = this.filterForm.value.imdbmax as number;
       this.filters.imdb.imdbmin = 0;
     }
@@ -89,5 +92,13 @@ export class FilterComponent implements OnInit {
     }
 
     this.sendFilters.emit(this.filters);
+  }
+  onClearFilters() {
+    this.filterForm.patchValue({ movie: this.movie });
+    this.filterForm.patchValue({ series: this.series });
+    this.filterForm.patchValue({ imdbmax: 10 });
+    this.filterForm.patchValue({ imdbmin: 0 });
+    this.filterForm.patchValue({ year: 0 });
+    this.onSubmit();
   }
 }

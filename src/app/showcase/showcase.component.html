@@ -1,31 +1,31 @@
 <div class="flex">
-  <h1 class="column clickable" (click)="goLeft()"><</h1>
-
-  <div
-    *ngFor="let product of data; index as i; first as isFirst; last as isLast"
-  >
-    @if(isFirst || isLast) {
-    <div class="column element hidden">
-      <div class="bordered clickable">
-        <p>{{ product.name }} - Id:{{ product.id }}</p>
-        <img class="video" [src]="product.image" alt="" />
+  <h1 class="column clickable nav-button" (click)="goLeft()"><</h1>
+  <div class="slider container">
+    <div class="slider-container" [style.transform]="sliderTransform">
+      @for(product of data;track product.id; let i =$index, isFirst=$first,
+      isLast=$last){ @if(isFirst || isLast) {
+      <div class="column element">
+        <div class="bordered clickable">
+          <p>{{ product.name }} - Id:{{ product.id }}</p>
+          <img class="video" [src]="product.image" alt="" />
+        </div>
       </div>
-    </div>
-    } @else if(i === floor(data.length/2)) {
-    <div class="column element center-element">
-      <div class="bordered clickable">
-        <p>{{ product.name }} - Id:{{ product.id }}</p>
-        <img class="video" [src]="product.image" alt="" />
+      } @else if(i === floor(data.length/2)) {
+      <div class="column element center-element">
+        <div class="bordered clickable">
+          <p>{{ product.name }} - Id:{{ product.id }}</p>
+          <img class="video" [src]="product.image" alt="" />
+        </div>
       </div>
-    </div>
-    } @else {
-    <div class="column element">
-      <div class="bordered clickable">
-        <p>{{ product.name }} - Id:{{ product.id }}</p>
-        <img class="video" [src]="product.image" alt="" />
+      } @else {
+      <div class="column element">
+        <div class="bordered clickable">
+          <p>{{ product.name }} - Id:{{ product.id }}</p>
+          <img class="video" [src]="product.image" alt="" />
+        </div>
       </div>
+      } }
     </div>
-    }
   </div>
-  <h1 class="column clickable" (click)="goRight()">></h1>
+  <h1 class="column clickable nav-button" (click)="goRight()">></h1>
 </div>

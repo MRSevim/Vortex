@@ -65,7 +65,7 @@ export class ProductsService {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png',
     },
     {
-      id: 5,
+      id: 6,
       name: 'PlaceHolder',
       type: 'movie',
       imdb: 5.6,
@@ -75,7 +75,7 @@ export class ProductsService {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png',
     },
     {
-      id: 6,
+      id: 7,
       name: 'PlaceHolder',
       type: 'series',
       imdb: 6.5,
@@ -85,7 +85,7 @@ export class ProductsService {
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png',
     },
     {
-      id: 7,
+      id: 8,
       name: 'PlaceHolder',
       type: 'movie',
       imdb: 6.0,

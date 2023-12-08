@@ -45,6 +45,12 @@ export class SeriesComponent {
         this.filters[property as keyof typeof this.filters].value === 0
       ) {
         this.products = this.products.filter(() => true);
+      } else if (
+        property === 'type' &&
+        this.filters[property as keyof typeof this.filters].value ===
+          'movieandseries'
+      ) {
+        this.products = this.products.filter(() => true);
       } else
         this.products = this.products.filter(
           this.filters[property as keyof typeof this.filters].function

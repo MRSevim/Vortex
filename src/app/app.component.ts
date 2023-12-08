@@ -41,15 +41,9 @@ export class AppComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.currentUser.setUser(data);
-          if (this.currentUser.currentUserSig() !== undefined) {
-            document.body.classList.remove('hidden');
-          }
         },
         error: () => {
           this.currentUser.setUser(null);
-          if (this.currentUser.currentUserSig() !== undefined) {
-            document.body.classList.remove('hidden');
-          }
         },
       });
   }
