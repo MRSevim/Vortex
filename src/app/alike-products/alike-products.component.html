@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="container">
+    <h3>More like ...</h3>
+    <div class="flex slider">
+      <div class="slider-container">
+        @for(product of data;track product.id) {
+        <div class="item">
+          <p>{{ product.name }}</p>
+          <img [src]="product.image" alt="" />
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

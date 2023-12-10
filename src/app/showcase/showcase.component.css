@@ -5,6 +5,7 @@
   background-color: var(--tertiary-color);
   justify-content: center;
   align-items: center;
+  height: 520px;
 }
 .column {
   display: flex;

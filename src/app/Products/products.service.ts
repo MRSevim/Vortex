@@ -120,5 +120,23 @@ export class ProductsService {
     return showcase;
   }
 
+  getAlikeProducts() {
+    let alike: ProductInterface[] = [];
+    for (let i = 0; i < 8; i++) {
+      let element = this.getRandomProduct();
+      if (
+        alike.some((item) => {
+          return item.id === element.id;
+        })
+      ) {
+        element = this.getRandomProduct();
+        i--;
+      } else {
+        alike.push(element);
+      }
+    }
+    return alike;
+  }
+
   constructor() {}
 }
