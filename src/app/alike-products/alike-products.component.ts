@@ -10,4 +10,19 @@ import { ProductInterface } from '../Products/products.service';
 })
 export class AlikeProductsComponent {
   @Input() data: ProductInterface[] = [];
+  sliderTransform = 'translateX(0%)';
+  index = 0;
+
+  goRight() {
+    if (this.index < this.data.length / 5 - 1) {
+      this.index++;
+      this.sliderTransform = `translateX(-${this.index * 100}%)`;
+    }
+  }
+  goLeft() {
+    if (this.index > 0) {
+      this.index--;
+      this.sliderTransform = `translateX(-${this.index * 100}%)`;
+    }
+  }
 }

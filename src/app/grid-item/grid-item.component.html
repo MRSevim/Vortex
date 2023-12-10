@@ -1,6 +1,7 @@
 <div class="grid-item">
-  <p>{{ product.name }}-{{ product.type }}</p>
-  <p>{{ product.year }}</p>
+  <p>{{ product.name }} - {{ product.type }}</p>
+  <p>{{ product.year }} - Id:{{ product.id }}</p>
+
   <img [src]="product.image" alt="" />
   <div class="flex">
     <p>Imdb:{{ product.imdb }}</p>

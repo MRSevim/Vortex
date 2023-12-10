@@ -1,4 +1,10 @@
 <div class="flex">
   <app-filter [movie]="movie" (sendFilters)="filter($event)"></app-filter>
-  <app-grid [products]="products"></app-grid>
+  <div class="column">
+    <app-grid [products]="products"> </app-grid>
+    <app-pagination
+      [products]="products"
+      (pageNumber)="onPageNumberChange($event)"
+    ></app-pagination>
+  </div>
 </div>

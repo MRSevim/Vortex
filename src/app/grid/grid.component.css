@@ -4,7 +4,6 @@
   gap: 10px;
   margin: 20px;
   grid-auto-rows: 350px;
-  margin-bottom: 80px;
 }
 app-grid-item {
   background-color: var(--primary-color);

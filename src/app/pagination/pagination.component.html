@@ -1,0 +1,19 @@
+<div class="pages-list">
+  <div class="clickable link" (click)="goToFirstPage()"><<</div>
+  <div class="clickable link" (click)="goOnePageBelow()"><</div>
+  @if(pages<7){ @for(page of pagesArray;track page) {
+  <div class="clickable link" (click)="onNumberClick(page)">{{ page }}</div>
+  } } @else { @for(page of pagesArray;track page;let index = $index) {
+  @if(page<4 || page>(pagesArray.length-3)){
+  <div class="clickable link" (click)="onNumberClick(page)">{{ page }}</div>
+  }@else if(page===4) {
+  <input
+    class="clickable"
+    type="number"
+    [(ngModel)]="inputPage"
+    (keyup.enter)="onSubmit()"
+  />
+  } }}
+  <div class="clickable link" (click)="goOnePageAbove()">></div>
+  <div class="clickable link" (click)="goToLastPage()">>></div>
+</div>

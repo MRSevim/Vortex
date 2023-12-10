@@ -1,0 +1,13 @@
+.pages-list {
+  margin-bottom: 80px;
+  display: flex;
+}
+.clickable {
+  margin-right: 10px;
+}
+input {
+  width: 40px;
+}
+.link {
+  text-decoration: underline;
+}

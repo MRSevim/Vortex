@@ -18,6 +18,7 @@ export class FilterComponent implements OnInit {
   @Output() sendFilters = new EventEmitter();
   @Input() movie: boolean = false;
   @Input() series: boolean = false;
+
   type = '';
 
   ngOnInit(): void {

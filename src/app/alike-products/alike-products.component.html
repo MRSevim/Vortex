@@ -1,12 +1,20 @@
 <div class="wrapper">
   <div class="container">
-    <h3>More like ...</h3>
+    <h3>
+      <p>More like ...</p>
+      <nav>
+        <p class="clickable" (click)="goLeft()"><</p>
+        <p class="clickable" (click)="goRight()">></p>
+      </nav>
+    </h3>
     <div class="flex slider">
-      <div class="slider-container">
+      <div class="slider-container" [style.transform]="sliderTransform">
         @for(product of data;track product.id) {
         <div class="item">
-          <p>{{ product.name }}</p>
-          <img [src]="product.image" alt="" />
+          <div class="bordered">
+            <p>{{ product.name }}</p>
+            <img [src]="product.image" alt="" />
+          </div>
         </div>
         }
       </div>

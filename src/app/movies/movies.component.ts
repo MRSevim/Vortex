@@ -5,16 +5,19 @@ import {
   ProductsService,
 } from '../Products/products.service';
 import { FilterComponent, FilterInterface } from '../filter/filter.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+import { FiltereventService } from '../filterevent.service';
 
 @Component({
   selector: 'app-movies',
   standalone: true,
-  imports: [GridComponent, FilterComponent],
+  imports: [GridComponent, FilterComponent, PaginationComponent],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css',
 })
 export class MoviesComponent {
   movie = true;
+  constructor(private filterEvent: FiltereventService) {}
 
   filters: FilterInterface = {
     type: {
@@ -55,5 +58,15 @@ export class MoviesComponent {
           this.filters[property as keyof typeof this.filters].function
         );
     }
+    this.filterEvent.next(this.products);
+  }
+  onPageNumberChange(event: number) {
+    this.filter(this.filters);
+    this.products = this.products.filter((product) => {
+      return (
+        this.products.indexOf(product) >= (event - 1) * 10 &&
+        this.products.indexOf(product) < event * 10
+      );
+    });
   }
 }
