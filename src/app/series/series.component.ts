@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FilterComponent, FilterInterface } from '../filter/filter.component';
 import { GridComponent } from '../grid/grid.component';
+import { PaginationComponent } from '../pagination/pagination.component';
 
 import {
   ProductsService,
@@ -10,7 +11,7 @@ import {
 @Component({
   selector: 'app-series',
   standalone: true,
-  imports: [FilterComponent, GridComponent],
+  imports: [FilterComponent, GridComponent, PaginationComponent],
   templateUrl: './series.component.html',
   styleUrl: './series.component.css',
 })
@@ -35,6 +36,8 @@ export class SeriesComponent {
 
   productsService = inject(ProductsService);
   products: ProductInterface[] = this.productsService.getAllProducts();
+
+  visibleProducts: ProductInterface[] = [];
   filter(event: any) {
     this.products = this.productsService.getAllProducts();
     this.filters = event;
@@ -56,5 +59,14 @@ export class SeriesComponent {
           this.filters[property as keyof typeof this.filters].function
         );
     }
+    this.onPageNumberChange(1);
+  }
+  onPageNumberChange(event: number) {
+    this.visibleProducts = this.products.filter((product) => {
+      return (
+        this.products.indexOf(product) >= (event - 1) * 10 &&
+        this.products.indexOf(product) < event * 10
+      );
+    });
   }
 }

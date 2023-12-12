@@ -1,7 +1,7 @@
 <div class="flex">
   <app-filter [movie]="movie" (sendFilters)="filter($event)"></app-filter>
   <div class="column">
-    <app-grid [products]="products"> </app-grid>
+    <app-grid [products]="visibleProducts"> </app-grid>
     <app-pagination
       [products]="products"
       (pageNumber)="onPageNumberChange($event)"

@@ -1,0 +1,32 @@
+<div class="flex search-bar">
+  <input
+    type="text"
+    id="search"
+    placeholder="Search.."
+    [(ngModel)]="searchParam"
+    (ngModelChange)="onSearch($event)"
+    (focus)="searching = true"
+    (focusout)="onFocusOut()"
+  />
+
+  @if(searching) { @if(visibleProducts.length>0) {
+
+  <div class="search-options">
+    @for(product of visibleProducts;track product.id) {
+    <div
+      class="option clickable"
+      (click)="onLinkClick()"
+      [routerLink]="['/products', product.id]"
+    >
+      <img [src]="product.image" alt="" />
+      {{ product.name }}
+    </div>
+    }
+  </div>
+  } @else {
+  <div class="search-options">
+    <p class="no-results">No results</p>
+  </div>
+  } }
+  <i class="fas fa-search"></i>
+</div>

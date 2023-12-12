@@ -26,6 +26,7 @@ export class FilterComponent implements OnInit {
     this.filterForm.patchValue({ series: this.series });
     this.onSubmit();
   }
+
   filters = {
     type: {
       value: '',

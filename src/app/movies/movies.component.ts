@@ -6,7 +6,6 @@ import {
 } from '../Products/products.service';
 import { FilterComponent, FilterInterface } from '../filter/filter.component';
 import { PaginationComponent } from '../pagination/pagination.component';
-import { FiltereventService } from '../filterevent.service';
 
 @Component({
   selector: 'app-movies',
@@ -17,7 +16,6 @@ import { FiltereventService } from '../filterevent.service';
 })
 export class MoviesComponent {
   movie = true;
-  constructor(private filterEvent: FiltereventService) {}
 
   filters: FilterInterface = {
     type: {
@@ -37,6 +35,8 @@ export class MoviesComponent {
 
   productsService = inject(ProductsService);
   products: ProductInterface[] = this.productsService.getAllProducts();
+
+  visibleProducts: ProductInterface[] = [];
   filter(event: any) {
     this.products = this.productsService.getAllProducts();
     this.filters = event;
@@ -58,11 +58,10 @@ export class MoviesComponent {
           this.filters[property as keyof typeof this.filters].function
         );
     }
-    this.filterEvent.next(this.products);
+    this.onPageNumberChange(1);
   }
   onPageNumberChange(event: number) {
-    this.filter(this.filters);
-    this.products = this.products.filter((product) => {
+    this.visibleProducts = this.products.filter((product) => {
       return (
         this.products.indexOf(product) >= (event - 1) * 10 &&
         this.products.indexOf(product) < event * 10

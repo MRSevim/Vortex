@@ -5,6 +5,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { MoviesComponent } from './movies/movies.component';
 import { SeriesComponent } from './series/series.component';
+import { ProductComponent } from './product/product.component';
 
 export const routes: Routes = [
   {
@@ -13,6 +14,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   { path: 'homepage', component: HomepageComponent },
+  { path: 'products/:productId', component: ProductComponent },
   { path: 'movies', component: MoviesComponent },
   { path: 'series', component: SeriesComponent },
   { path: 'log-in', component: LogInComponent },

@@ -11,7 +11,10 @@
       <div class="slider-container" [style.transform]="sliderTransform">
         @for(product of data;track product.id) {
         <div class="item">
-          <div class="bordered">
+          <div
+            class="bordered clickable"
+            [routerLink]="['/products', product.id]"
+          >
             <p>{{ product.name }}</p>
             <img [src]="product.image" alt="" />
           </div>

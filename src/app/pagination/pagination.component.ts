@@ -1,7 +1,13 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { ProductInterface } from '../Products/products.service';
 import { FormsModule } from '@angular/forms';
-import { FiltereventService } from '../filterevent.service';
 
 @Component({
   selector: 'app-pagination',
@@ -10,21 +16,18 @@ import { FiltereventService } from '../filterevent.service';
   templateUrl: './pagination.component.html',
   styleUrl: './pagination.component.css',
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnChanges {
   @Input() products: ProductInterface[] = [];
   @Output() pageNumber = new EventEmitter();
   pages: number = 0;
   pagesArray: number[] = [];
   currentPage: number = 1;
   inputPage: number = 4;
-  constructor(private filterEvent: FiltereventService) {}
-  ngOnInit(): void {
-    console.log(this.products);
-    this.filterEvent.subject.subscribe((data) => {
-      this.onFilterChange();
-      console.log(this.products);
-    });
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.onFilterChange();
   }
+
   onFilterChange(): void {
     this.pagesArray = [];
     this.pages = Math.ceil(this.products.length / 10);

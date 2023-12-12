@@ -8,15 +8,16 @@ import {
 import { RouterLink } from '@angular/router';
 
 import { CurrentUserService } from '../User/current-user.service';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, SearchBarComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   userService = inject(CurrentUserService);
   menuToggle = true;
   darkMode = false;

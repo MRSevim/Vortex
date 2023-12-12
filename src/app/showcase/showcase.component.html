@@ -5,21 +5,30 @@
       @for(product of data;track product.id; let i =$index, isFirst=$first,
       isLast=$last){ @if(isFirst || isLast) {
       <div class="column element">
-        <div class="bordered clickable">
+        <div
+          class="bordered clickable"
+          [routerLink]="['/products', product.id]"
+        >
           <p>{{ product.name }} - Id:{{ product.id }}</p>
           <img class="video" [src]="product.image" alt="" />
         </div>
       </div>
       } @else if(i === floor(data.length/2)) {
       <div class="column element center-element">
-        <div class="bordered clickable">
+        <div
+          class="bordered clickable"
+          [routerLink]="['/products', product.id]"
+        >
           <p>{{ product.name }} - Id:{{ product.id }}</p>
           <img class="video" [src]="product.image" alt="" />
         </div>
       </div>
       } @else {
       <div class="column element">
-        <div class="bordered clickable">
+        <div
+          class="bordered clickable"
+          [routerLink]="['/products', product.id]"
+        >
           <p>{{ product.name }} - Id:{{ product.id }}</p>
           <img class="video" [src]="product.image" alt="" />
         </div>

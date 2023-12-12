@@ -802,7 +802,7 @@ export class ProductsService {
 
   getAlikeProducts() {
     let alike: ProductInterface[] = [];
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 15; i++) {
       let element = this.getRandomProduct();
       if (
         alike.some((item) => {
@@ -817,6 +817,10 @@ export class ProductsService {
     }
     return alike;
   }
-
+  getProductById(id: number) {
+    return this.Products.find((product) => {
+      return product.id === id;
+    });
+  }
   constructor() {}
 }

@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { ProductInterface } from '../Products/products.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-alike-products',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './alike-products.component.html',
   styleUrl: './alike-products.component.css',
 })

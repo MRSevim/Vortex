@@ -12,6 +12,9 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+.flex > * {
+  flex: 1;
+}
 .navbar {
   display: flex;
   list-style: none;
@@ -33,9 +36,11 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .right-section {
   display: flex;
   align-items: center;
+  margin-left: 50px;
 }
 .placeholder {
   width: 225px;

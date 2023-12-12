@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { ProductInterface } from '../Products/products.service';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-showcase',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './showcase.component.html',
   styleUrl: './showcase.component.css',
 })

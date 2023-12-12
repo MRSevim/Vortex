@@ -1,4 +1,4 @@
-<div class="grid-item">
+<div class="grid-item clickable" [routerLink]="['/products', product.id]">
   <p>{{ product.name }} - {{ product.type }}</p>
   <p>{{ product.year }} - Id:{{ product.id }}</p>
 
