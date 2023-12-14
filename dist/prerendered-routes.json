@@ -1,9 +1,0 @@
-{
-  "routes": [
-    "/homepage",
-    "/log-in",
-    "/movies",
-    "/series",
-    "/sign-up"
-  ]
-}
