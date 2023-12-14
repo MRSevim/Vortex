@@ -41,11 +41,11 @@ export class AppComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.currentUser.setUser(data);
-          document.body.classList.remove('hidden');
+          document.body.classList.remove('loading');
         },
         error: () => {
           this.currentUser.setUser(null);
-          document.body.classList.remove('hidden');
+          document.body.classList.remove('loading');
         },
       });
   }

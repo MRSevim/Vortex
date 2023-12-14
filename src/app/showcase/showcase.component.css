@@ -46,6 +46,10 @@
 }
 .video {
   height: 200px;
+  width: 90%;
+}
+.center-element .video {
+  width: 40%;
 }
 .nav-button {
   margin: 10px;
