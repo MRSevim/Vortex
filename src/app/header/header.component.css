@@ -49,6 +49,7 @@ header {
   display: flex;
   align-items: center;
   border: 2px solid var(--secondary-color);
+  background-color: var(--tertiary-color);
   padding: 5px;
   border-radius: 10px;
   cursor: pointer;
@@ -66,9 +67,10 @@ header {
   left: 0;
   padding: 10px;
   border-radius: 10px;
-  background-color: var(--primary-color);
+  background-color: var(--tertiary-color);
   border: 2px solid var(--secondary-color);
   cursor: context-menu;
+  z-index: 10;
 }
 .profile-menu > li {
   list-style: none;
@@ -98,4 +100,16 @@ header {
 }
 .profile-menu > li:nth-child(1) {
   display: flex;
+}
+.log-in {
+  background-color: var(--secondary-color);
+  padding: 10px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.log-in i {
+  margin-right: 10px;
+}
+.log-in:hover {
+  transform: scale(1.1);
 }

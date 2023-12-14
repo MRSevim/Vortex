@@ -35,6 +35,9 @@ export class HeaderComponent implements OnInit {
   logOut() {
     localStorage.setItem('token', '');
     this.userService.setUser(null);
+    if (this.darkMode) {
+      this.darkModeToggle();
+    }
   }
   toggleMenu() {
     this.menuToggle = !this.menuToggle;

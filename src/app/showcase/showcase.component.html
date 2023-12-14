@@ -2,18 +2,8 @@
   <h1 class="column clickable nav-button" (click)="goLeft()"><</h1>
   <div class="slider container">
     <div class="slider-container" [style.transform]="sliderTransform">
-      @for(product of data;track product.id; let i =$index, isFirst=$first,
-      isLast=$last){ @if(isFirst || isLast) {
-      <div class="column element">
-        <div
-          class="bordered clickable"
-          [routerLink]="['/products', product.id]"
-        >
-          <p>{{ product.name }} - Id:{{ product.id }}</p>
-          <img class="video" [src]="product.image" alt="" />
-        </div>
-      </div>
-      } @else if(i === floor(data.length/2)) {
+      @for(product of data;track product.id; let i =$index ){ @if(i ===
+      floor(data.length/2)) {
       <div class="column element center-element">
         <div
           class="bordered clickable"
