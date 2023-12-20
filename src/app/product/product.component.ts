@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
       this.product = this.productsService.getProductById(
         productIdFromRoute
       ) as ProductInterface;
-      this.productStarsImg = `/assets/stars-images/${this.product.stars}-stars.jpg`;
+      this.productStarsImg = `assets/stars-images/${this.product.stars}-stars.jpg`;
     });
   }
 }
