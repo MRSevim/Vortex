@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
   currentUser = inject(CurrentUserService);
 
   ngOnInit(): void {
+    document.body.classList.remove('hidden');
     this.token = localStorage.getItem('token');
 
     let options = {
